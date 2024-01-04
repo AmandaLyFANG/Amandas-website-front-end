@@ -1,4 +1,5 @@
 import React from 'react'
+import CurriculumVitae from '../CurriculumVitae/cv'
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,22 +12,23 @@ import {
 export default function App() {
   return (
     <Router>
-      <div>
+      <div style={{ width: '15%', float: 'left' }}>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/cv">Curriculum Vitae</Link>
           </li>
           <li>
             <Link to="/topics">Topics</Link>
           </li>
         </ul>
-
+        </div>
+      <div style={{ width: '85%', float: 'left' }}>
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/cv">
+            <CurriculumVitae />
           </Route>
           <Route path="/topics">
             <Topics />
@@ -35,24 +37,24 @@ export default function App() {
             <Home />
           </Route>
         </Switch>
-      </div>
+        </div>
     </Router>
   )
 }
 
 function Home() {
-  return <h2>Home</h2>
-}
+  return (
+  <div style={{ width: '80%', float: 'left' }}>
+    <h2>Home</h2>
+    </div>)
 
-function About() {
-  return <h2>About</h2>
 }
 
 function Topics() {
   let match = useRouteMatch()
 
   return (
-    <div>
+    <div style={{ width: '80%', float: 'left' }}>
       <h2>Topics</h2>
 
       <ul>
