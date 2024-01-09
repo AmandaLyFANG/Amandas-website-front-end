@@ -1,3 +1,30 @@
-.CV {
+.cv{
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cv-category {
+  margin-top: 20px;
+  border-top: 5px solid var(--black);
+}
+
+.personInfo{
   text-align: center;
+}
+
+.cv h2{
+  margin: 0px
+}
+
+.organization{
+  font-weight: bold;
+  float: 'left';
+}
+
+.duration{
+  font-weight: bold;
+  float: 'right';
 }
