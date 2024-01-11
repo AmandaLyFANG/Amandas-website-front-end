@@ -1,5 +1,6 @@
 import React from 'react'
 import CurriculumVitae from '../CurriculumVitae/cv'
+import Main from '../blog/Main'
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,7 +32,8 @@ export default function App() {
             <CurriculumVitae />
           </Route>
           <Route path="/topics">
-            <Topics />
+            {/* <Topics /> */}
+            <Main />
           </Route>
           <Route path="/">
             <Home />

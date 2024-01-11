@@ -21,10 +21,18 @@
 
 .organization{
   font-weight: bold;
-  float: 'left';
+  text-align: left;
+  white-space: nowrap;
 }
 
 .duration{
   font-weight: bold;
-  float: 'right';
+  text-align: right;
+  white-space: nowrap;
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
