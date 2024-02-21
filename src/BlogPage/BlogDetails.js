@@ -8,7 +8,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchArticleContent = async () => {
       try {
-        const response = await fetch(`//localhost:8080/v1/blog/articles/${articleId}`, {
+        const response = await fetch(`/v1/blog/articles/${articleId}`, {
           method: 'GET',
         });
 

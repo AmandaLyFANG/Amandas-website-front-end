@@ -15,6 +15,13 @@ CREATE TABLE user_table (
   reg_time DATETIME NOT NULL comment '注册时间',
   last_update_time DATETIME NOT NULL comment '身份信息最后修改时间'
 );
+-- 标签表
+DROP TABLE IF EXISTS article_tag;
+CREATE TABLE article_tag(
+  id INT PRIMARY KEY AUTO_INCREMENT comment '标签id',
+  name VARCHAR(20) NOT NULL comment '标签名称',
+  atricle_id INT NOT NULL comment '文章id'
+);
 -- 文章表
 DROP TABLE IF EXISTS articles;
 CREATE TABLE articles (
@@ -27,13 +34,6 @@ CREATE TABLE articles (
   user_id INT NOT NULL comment '用户id',
   like_count INT NOT NULL comment '点赞数量',
   view_count INT NOT NULL comment '浏览量'
-);
--- 文章分类表
-DROP TABLE IF EXISTS article_category;
-CREATE TABLE article_category (
-  category_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT comment '分类id',
-  category_name VARCHAR(20) NOT NULL comment '分类名称',
-  article_id INT NOT NULL comment '文章id'
 );
 -- 评论表
 DROP TABLE IF EXISTS comment_table;
@@ -53,13 +53,7 @@ CREATE TABLE replay_table (
   type VARCHAR(20) comment '回复类型',
   replay_time DATETIME NOT NULL comment '回复时间'
 );
--- 标签表
-DROP TABLE IF EXISTS article_tag;
-CREATE TABLE article_tag(
-  id INT PRIMARY KEY AUTO_INCREMENT comment '标签id',
-  name VARCHAR(20) NOT NULL comment '标签名称',
-  atricle_id INT NOT NULL comment '文章id'
-);
+
 -- 插入基本测试数据
 INSERT INTO
   user_table (

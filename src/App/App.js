@@ -21,7 +21,7 @@ export default function App() {
             <Link to="/cv">Curriculum Vitae</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/blog">Blog</Link>
           </li>
         </ul>
         </div>
@@ -30,8 +30,7 @@ export default function App() {
           <Route path="/cv">
             <CurriculumVitae />
           </Route>
-          <Route path="/topics">
-            {/* <Topics /> */}
+          <Route path="/blog">
             <Blog />
           </Route>
           <Route path="/blog-details/:articleId" component={BlogDetails} /> 

@@ -5,7 +5,7 @@ const Blog = () => {
 
   const fetchData = async (page, size) => {  
     try {  
-      const response = await fetch(`//localhost:8080/v1/blog/articles?page=${page}&size=${size}`, {  
+      const response = await fetch(`/v1/blog/articles?page=${page}&size=${size}`, {  
         method: 'GET',  
         // headers: {  
         //   'Accept': 'application/hal+json',  
@@ -19,8 +19,8 @@ const Blog = () => {
       const data = await response.json();  
   
       setArticles(data.content); 
-      setPageSize(data.pageable.pageSize); 
-      setCurrentPage(data.pageble.pageNumber)
+      setPageSize(data.size); 
+      setCurrentPage(data.number);
       
     } catch (error) {  
       console.error('There was a problem with the fetch operation:', error);  
@@ -34,8 +34,7 @@ const Blog = () => {
   useEffect(() => {  
     fetchData(currentPage, pageSize);  
   }, [currentPage, pageSize]);  
-  
-
+    
   
   const goToPage = (page) => {  
     setCurrentPage(page);  
@@ -46,17 +45,7 @@ const Blog = () => {
   const hasNextPage = articles.length === pageSize;  
   
   return (  
-    <div>  
-      {/* {articles.map(article => (  
-        <div key={article.id}>  
-          <h2>{article.title}</h2>  
-          <h2>
-            <a href={`/article/${article.articleId}`}>{article.title}</a>
-          </h2>
-          <p>{article.content}</p>  
-        </div>  
-      ))}   */}
-
+    <div> 
       {articles.map(article => (
         <div key={article.articleId}>
           {/* <h2>
@@ -79,57 +68,3 @@ const Blog = () => {
 
 
 export default Blog; 
-// const Blog = () => {  
-//   const [posts, setPosts] = useState([]);  
-//   const [postDetail, setPostDetail] = useState(null);  
-  
-//   // 初始化加载文章列表和详情  
-//   useEffect(() => {  
-//     (async () => {  
-//       const fetchedPosts = await fetchPosts();  
-//       setPosts(fetchedPosts);  
-//     })();  
-//   }, []);  
-  
-//   // 根据文章ID加载文章详情  
-//   useEffect(() => {  
-//     const postId = window.location.pathname.split('/').pop(); // 获取URL中的文章ID参数  
-//     if (postId) {  
-//       (async () => {  
-//         const fetchedPost = await fetchPostDetails(postId);  
-//         setPostDetail(fetchedPost);  
-//       })();  
-//     } else {  
-//       setPostDetail(null); // 如果URL中没有文章ID，则不加载文章详情  
-//     }  
-//   }, [posts]); // 当文章列表发生变化时重新加载文章详情，以确保显示最新数据  
-  
-//   return (  
-//     <Router>  
-//       <div>  
-//         <nav>  
-//           <ul>  
-//             <li>  
-//               <Link to="/">Home</Link>  
-//             </li>  
-//             <li>  
-//               <Link to="/blog">Blog</Link>  
-//             </li>  
-//           </ul>  
-//         </nav>  
-//         <Switch>  
-//           <Route exact path="/">  
-//             <BlogList />  
-//           </Route>  
-//           <Route path="/blog">  
-//             <BlogList />  
-//           </Route>  
-//           <Route path="/blog/:id">  
-//             <BlogDetail post={postDetail} />  
-//           </Route>  
-//         </Switch>  
-//       </div>  
-//     </Router>  
-//   );  
-// };  
-// export default Blog;
