@@ -1,7 +1,7 @@
 import React from 'react'
 import './cv.css';
 
-export default function CurriculumVitae() {
+const CurriculumVitae = () => {
   return (
     <div style={{ width: '80%', float: 'left' }}>
       <div class="cv">
@@ -105,3 +105,5 @@ export default function CurriculumVitae() {
       </div>
     </div>)
 }
+
+export default CurriculumVitae;

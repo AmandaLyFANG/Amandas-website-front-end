@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 const BlogDetails = () => {
   const { articleId } = useParams();
   const [article, setArticle] = useState(null);
-
   useEffect(() => {
     const fetchArticleContent = async () => {
       try {

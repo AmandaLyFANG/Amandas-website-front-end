@@ -1,119 +1,70 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
+import React, { useState, useEffect } from 'react';  
+import { Link } from 'react-router-dom';  
 
-const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
-];
+const Blog = () => {  
 
-const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random?wallpapers',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
-};
+  const fetchData = async (page, size) => {  
+    try {  
+      const response = await fetch(`/v1/blog/articles?page=${page}&size=${size}`, {  
+        method: 'GET',  
+        // headers: {  
+        //   'Accept': 'application/hal+json',  
+        // },  
+      });  
+  
+      if (!response.ok) {  
+        throw new Error('Network response was not ok');  
+      }  
+  
+      const data = await response.json();  
+  
+      setArticles(data.content); 
+      setPageSize(data.size); 
+      setCurrentPage(data.number);
+      
+    } catch (error) {  
+      console.error('There was a problem with the fetch operation:', error);  
+    }  
+  };  
+  
+  const [articles, setArticles] = useState([]);  
+  const [currentPage, setCurrentPage] = useState(0);  
+  const [pageSize, setPageSize] = useState(20);  
+  
+  useEffect(() => {  
+    fetchData(currentPage, pageSize);  
+  }, [currentPage, pageSize]);  
+    
+  
+  const goToPage = (page) => {  
+    setCurrentPage(page);  
+  };  
+  
 
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-];
+  const hasPreviousPage = currentPage > 0;  
+  const hasNextPage = articles.length === pageSize;  
+  
+  return (  
+    <div> 
+      {articles.map(article => (
+        <div key={article.articleId}>
+          {/* <h2>
+          <Link to="#" onClick={() => handleArticleClick(article.articleId)}>{article.title}</Link>
+          </h2>
+          {selectedArticleId === article.articleId && <BlogDetails articleId={article.articleId} />} Render BlogDetails only for the selected article
+           */}
+          <h2>
+            <Link to={`/blog-details/${article.articleId}`}>{article.title}</Link> {/* Link to BlogDetails page */}
+          </h2>
+        </div>
+      ))}
 
-const posts = [post1, post2, post3];
+            <button disabled={!hasPreviousPage} onClick={() => goToPage(currentPage - 1)}>Previous Page</button>  
+      <button disabled={!hasNextPage} onClick={() => goToPage(currentPage + 1)}>Next Page</button>  
+    </div>  
+  );  
+};  
 
-const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'Twitter', icon: TwitterIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
-};
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
-export default function Blog() {
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
-        </main>
-      </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
-    </ThemeProvider>
-  );
-}
+export default Blog; 
