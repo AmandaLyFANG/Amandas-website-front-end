@@ -27,10 +27,14 @@ import {
 } from "./pages/Events";
 import Contact from "./pages/ContactUs";
 import Support from "./pages/Support";
+import BlogPage from './blog-components/BlogPage';
+import Navbar from './blog-components/Navbar';
+
 function App() {
 	return (
 		<Router>
-			<Sidebar />
+			{/* <Sidebar /> */}
+			<Navbar />
 			<Routes>
 				<Route 
 					path="/cv"
@@ -41,6 +45,10 @@ function App() {
 					element={<Blog />}
 				/>	
 				<Route path="/blog-details/:articleId" element={<BlogDetails />} />
+				<Route 
+					path="/blogpage"
+					element={<BlogPage />}
+				/>
 				<Route
 					path="/about-us"
 					element={<AboutUs />}
@@ -96,6 +104,9 @@ function App() {
 				
 			</Routes>
 		</Router>
+		// <div className="main-container" style={{backgroundColor: "rgb(203, 195, 227)"}}>
+		// 	<BlogPage />
+        // </div>
 	);
 }
 

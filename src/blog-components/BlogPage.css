@@ -1,0 +1,8 @@
+.main-container{
+    background: rgb(203, 195, 227);
+	display: flex;
+	justify-content: space-between;
+    margin-top: 20px;
+	/* Third Nav */
+	/* justify-content: flex-start; */
+}

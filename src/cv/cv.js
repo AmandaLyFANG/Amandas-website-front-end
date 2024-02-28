@@ -3,7 +3,7 @@ import './cv.css';
 
 const CurriculumVitae = () => {
   return (
-    <div style={{ width: '80%', float: 'left' }}>
+    <div style={{ width: '100%', float: 'left' }}>
       <div class="cv">
         <div class="personInfo">
           <h2 style={{ align: 'center' }}>Lingyun Fang (Amanda)</h2>

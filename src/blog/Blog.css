@@ -1,0 +1,38 @@
+.card-col{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-link-new{
+    padding: 10px 20px;  
+    border: none;  
+    background-color: transparent;
+    color: rgb(0, 0, 0); 
+    cursor: pointer;  
+    border-radius: 3px;  
+    font-size: 16px;  
+}
+
+.button-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #9a55af; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none; /* Remove default underline */
+    border: none; /* Remove default border */
+    border-radius: 0.25rem; /* Button border radius */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.button-link:hover {
+    background-color: #9a55af; /* Change background color on hover */
+
+}
+
+.pageButtonGroup{
+    width: 100%;
+    text-align: center;
+}

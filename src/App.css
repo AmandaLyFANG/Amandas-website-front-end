@@ -1,4 +1,3 @@
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -13,4 +12,10 @@
 	display: flex;
 	margin-left: 260px;
 	font-size: 2rem;
+}
+body, html {
+	cursor: url('easter-egg_2692679.png'), auto;
+}
+a:hover {
+	cursor: url('glove_7715086.png'), auto;
 }

@@ -76,3 +76,14 @@ npm i react-router-dom --save styled-components --save react-icons
 
 https://www.geeksforgeeks.org/blog-app-using-reactjs/?ref=header_search
 https://www.geeksforgeeks.org/create-a-responsive-navbar-using-reactjs/?ref=ml_lbp
+
+icons:https://react-icons.github.io/react-icons/
+
+
+
+npm i bootstrap
+npm i react-bootstrap
+
+color: rgb(203, 195, 227) purple
+
+rgb(216, 191, 216)

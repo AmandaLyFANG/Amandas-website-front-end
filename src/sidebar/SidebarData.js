@@ -8,6 +8,11 @@ import * as RiIcons from "react-icons/ri";
 
 export const SidebarData = [
 	{
+		title: "BlogPage",
+		path: "/blogpage",
+		icon: <FaIcons.FaPhone />,
+	},
+	{
 		title: "CV",
 		path: "/cv",
 		icon: <FaIcons.FaPhone />,
