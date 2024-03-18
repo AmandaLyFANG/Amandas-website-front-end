@@ -4,16 +4,17 @@ import Blog from './blog/Blog'
 import BlogDetails from './blog/BlogDetails'
 import "./App.css";
 import Sidebar from "./sidebar/Sidebar";
+import Home from './pages/Home';
 import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
 } from "react-router-dom";
 import {
-	AboutUs,
-	OurAim,
-	OurVision,
-} from "./pages/AboutUs";
+	About,
+	Aim,
+	Vision,
+} from "./pages/About";
 import {
 	Services,
 	ServicesOne,
@@ -25,10 +26,11 @@ import {
 	EventsOne,
 	EventsTwo,
 } from "./pages/Events";
-import Contact from "./pages/ContactUs";
+import Contact from "./pages/Contact";
 import Support from "./pages/Support";
 import BlogPage from './blog-components/BlogPage';
 import Navbar from './blog-components/Navbar';
+import Project from './pages/project/Project';
 
 function App() {
 	return (
@@ -50,20 +52,12 @@ function App() {
 					element={<BlogPage />}
 				/>
 				<Route
-					path="/about-us"
-					element={<AboutUs />}
+					path="/about"
+					element={<About />}
 				/>
 				<Route
-					path="/about-us/aim"
-					element={<OurAim />}
-				/>
-				<Route
-					path="/about-us/vision"
-					element={<OurVision />}
-				/>
-				<Route
-					path="/services"
-					element={<Services />}
+					path="/project"
+					element={<Project />}
 				/>
 				<Route
 					path="/services/services1"
@@ -111,10 +105,3 @@ function App() {
 }
 
 export default App;
-const Home = () => {
-  return (
-  <div style={{ width: '80%', float: 'left' }}>
-    <h2>Home</h2>
-    </div>)
-
-}

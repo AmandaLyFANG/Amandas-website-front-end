@@ -36,3 +36,29 @@
     width: 100%;
     text-align: center;
 }
+
+.portfolio_button2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 30px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.portfolio_button2 button {
+    font-weight: 600;
+    color: rgb(161, 111, 243);
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
+    transition: var(--transition);
+    font-size: 17px;
+}
+
+.portfolio_button2 button.active {
+color: var(--muddy);
+}
+
+.portfolio_button2 button:hover {
+color: var(--muddy);
+}

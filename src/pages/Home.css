@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --main-color: #55527C;
+    --dark-color: #130F49;
+    --blue-color: #A5A6FF;
+    --purple-color:#800080;
+}
+
+.font-extrabold {
+    font-weight: 800;
+}
+
+.text-indigo-600 {
+    color: #8e95fa;
+}
+
+.bg-indigo-600 {
+    background-color: #8e95fa;
+}
+
+.hover\:bg-indigo-700:hover {
+    background-color: #434a94;
+}
+
+.transition_link {
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.text-gray-900 {
+    color: #1a202c;
+}
+
+.text-gray-800 {
+    color: #2d3748;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+.hover\:text-white:hover {
+    color: #ffffff;
+}
+
+.mt-15 {
+    margin-top: 3.75rem/* 20px */;
+}
+
+.text-\[100px\] {
+    font-size: 100px;
+}
+
+.text-\[120px\] {
+    font-size: 120px;
+}
+
+/* This is a mobile responsive breakpoint example */
+@media only screen and (max-width: 600px) {
+    .font-extrabold {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .buttons a {
+        padding: 10px 20px; /* Adjust button padding on mobile */
+    }
+}

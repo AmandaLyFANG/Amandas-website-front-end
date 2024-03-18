@@ -1,6 +1,7 @@
 // Post3.js
 
 import { Card } from "react-bootstrap";
+import Image1 from '../assets/img/blog/1.png';
 
 const Post3 = () => {
 	 const  getRandomColor=()=> {
@@ -44,8 +45,7 @@ const Post3 = () => {
 			/> */}
 			<Card.Img
 				variant="top"
-				src={createImageFromInitials(500, 'dsadsa', getRandomColor())
-				}
+				src={Image1}
 				width={20}
 				height={250}
 			/>

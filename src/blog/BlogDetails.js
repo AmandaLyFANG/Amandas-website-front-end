@@ -31,17 +31,35 @@ const BlogDetails = () => {
   }
 
   return (
-    <div>
-      <h2>{article.title}</h2>
-      <p>{article.content}</p>
-
-      {article.tagDTOList.map(tagDTO => (
-        <div key={tagDTO.tagId}>
-          <h2>tagDTO.tagName</h2>
-        </div>
-      ))}
-      {/* You can render other details of the article here */}
-    </div>
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-xl-8 col-lg-10 col-12">
+                        <div class="common_heading text-center">
+                            <h2 class="h1 white fw-6 my-4">{article.title}</h2>
+                            <p>{article.createTime} - BY ADMIN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10 col-12">
+                      {article.content}
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10 col-12">
+                        <div class="pt-110">
+                            <div class="tag_share bb">
+                                <div class="row align-items-center pb-4">
+                                    <div class="col-md-6 col-12 mb-4 mb-md-0">
+                                        <h6 class="white d-inline-block pe-3">Tags :</h6>
+                                        {article.tagDTOList.map(tag => (<p class="d-inline-block">{tag.tagName}</p>) )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
   );
 };
 
