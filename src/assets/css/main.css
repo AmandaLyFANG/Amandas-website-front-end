@@ -2117,6 +2117,16 @@ h6 {
   background-color: rgb(243 249 255 / var(--tw-bg-opacity));
 }
 
+.bg-purple-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 207 230 / var(--tw-bg-opacity));
+}
+
+.bg-purple-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 232 253 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#FCE8D4\] {
   --tw-bg-opacity: 1;
   background-color: rgb(252 232 212 / var(--tw-bg-opacity));

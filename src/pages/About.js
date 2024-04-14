@@ -1,25 +1,32 @@
+// https://blog.hubspot.com/marketing/best-personal-websites
+// https://jopecuro.com/
+
+
 import React from "react";
+import ScrollAnimationComponent from "../blog-components/ScrollAnimation";
+import 'animate.css/animate.min.css';
+import { TimelineAnimation } from "../TimelineAnimation/TimelineAnimation";
 
 export const About = () => {
 	return (
-		<div class="elisc_tm_section" id="about">
-			<div class="elisc_tm_about w-full float-left pt-[130px]">
+		<div id="about">
+			<div class="w-full float-left pt-[130px]">
 				<div class="tm_content w-full max-w-[1250px] h-auto clear-both my-0 mx-auto py-0 px-[20px]">
-					<div class="elisc_tm_biography w-full float-left flex mb-[40px]">
+					<div class="w-full float-left flex mb-[40px]">
 						<div class="left w-[40%]">
 							<div class="title w-full float-left mb-[40px]">
 								<span class="mini block uppercase font-medium mb-[12px]">- Nice to meet you!</span>
 								<h3 class="name font-extrabold text-[40px]">Lingyun Fang</h3>
+								<h3>(Amanda)</h3>
 								<span class="job font-semibold text-[20px] text-dark-color">
 									<span class="cd-headline clip">
-										<span class="blc">Coder &amp; Developer</span>
+										<span class="blc">Creater &amp; Developer &amp; Designer</span>
 									</span>
 								</span>
 							</div>
 						</div>
 						<div class="right w-[60%]">
 							<div class="text w-full float-left mb-[44px]">
-								<p class="mb-[30px]">Hello there! My name is <span class="text-yellow-color">Lingyun Fang</span>. I am a developer, and I'm very passionate and dedicated to my work.</p>
 								<p>With 3 years experience as a back-end developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the process, from discussion and collaboration.</p>
 							</div>
 							<div class="info w-full float-left">
@@ -43,13 +50,13 @@ export const About = () => {
 					<div class="w-full float-left mb-[90px]">
 						<ul class="ml-[-30px]">
 							<li class="mb-[30px] float-left w-1/2 pl-[30px]">
-								<div class="list_inner w-full float-left relative text-center py-[60px] px-[20px] rounded-[4px] overflow-hidden bg-[#D3F4EC]">
+								<div class="list_inner w-full float-left relative text-center py-[60px] px-[20px] rounded-[4px] overflow-hidden bg-purple-300">
 									<h3 class="text-[40px] mb-[7px]">3+</h3>
 									<span class="font-medium font-karla uppercase">Years of Experience</span>
 								</div>
 							</li>
 							<li class="mb-[30px] float-left w-1/2 pl-[30px]">
-								<div class="list_inner w-full float-left relative text-center py-[60px] px-[20px] rounded-[4px] overflow-hidden bg-[#FCE8D4]">
+								<div class="list_inner w-full float-left relative text-center py-[60px] px-[20px] rounded-[4px] overflow-hidden bg-[#FFF5F6]">
 									<h3 class="text-[40px] mb-[7px]">10+</h3>
 									<span class="font-medium font-karla uppercase">Projects Completed</span>
 								</div>
@@ -57,7 +64,7 @@ export const About = () => {
 						</ul>
 					</div>
 				</div>
-				<div class="w-full float-left bg-[#F3F9FF] pt-[100px] pb-[70px] px-0">
+				<div class="w-full float-left bg-purple-200 pt-[100px] pb-[70px] px-0">
 					<div class="tm_content w-full max-w-[1250px] h-auto clear-both my-0 mx-auto py-0 px-[20px]">
 						<div class=" w-full float-left">
 							<span class="w-full float-left font-medium uppercase inline-block mb-[12px]">- Experience</span>
@@ -65,7 +72,58 @@ export const About = () => {
 						</div>
 						<div class="list w-full float-left mt-[40px]">
 							<ul class="ml-[-30px] flex flex-wrap">
+								{/* <!-- EDUCATION --> */}
 								<li class="mb-[40px] pl-[30px] float-left ">
+									<div class=" w-full float-left">
+										<h3 class="text-[30px] font-bold mb-2">- Education</h3>
+									</div>
+
+									<div class="list_inner w-full float-left clear-bot  bg-white rounded-[4px] px-[70px] py-[45px] relative">
+										{/* <!-- EDUCATION 1 --> */}
+										<div class="short w-full float-left flex justify-between mb-[16px]">
+											<div class="job">
+												<span class="text-yellow-color font-medium inline-block mb-[4px]">-Sept 2015 - June 2019</span>
+												<h3 class="text-[20px]">Bachelor of Computer Science (Software Engineering)</h3>
+											</div>
+											<div class="place">
+												<span class="font-medium font-inter">YiChun University</span>
+											</div>
+										</div>
+										<a class="absolute inset-0 z-[5]" href="#"></a>
+
+										<div class="hidden_details">
+											<div class="descriptions">
+												<p>Main Unit: </p>
+												<p>Thesis: Design and Implementation of a Hotel management system based on SSM, grade: 79.1/100</p>
+											</div>
+										</div>
+										{/* <!-- EDUCATION 2 --> */}
+										<hr></hr>
+										<div class="short w-full float-left flex justify-between mb-[16px]">
+											<div class="job">
+												<span class="text-yellow-color font-medium inline-block mb-[4px]">-July 2022 - Dec 2023</span>
+												<h3 class="text-[20px]">Master of Data Science</h3>
+											</div>
+											<div class="place">
+												<span class="font-medium font-inter">University of Sydney</span>
+											</div>
+										</div>
+										<a class="absolute inset-0 z-[5]" href="#"></a>
+
+										<div class="hidden_details">
+											<div class="descriptions">
+												<p>Unit: Cloud Computing, Natural Language Processing, Computational Statistical Methods etc.</p>
+												<p>Capstone: Design and Implementation of a Hotel management system based on SSM, grade: 79.1/100</p>
+											</div>
+										</div>
+
+									</div>
+								</li>
+
+								<li class="mb-[40px] pl-[30px] float-left ">
+									<div class=" w-full float-left">
+										<h3 class="text-[30px] font-bold mb-2">- Working Experience</h3>
+									</div>
 									<img class="popup_image" src="assets/img/experience/1.jpg" alt="" />
 									<div class="list_inner w-full float-left clear-bot  bg-white rounded-[4px] px-[70px] py-[45px] relative">
 										<div class="short w-full float-left flex justify-between mb-[16px]">
@@ -115,13 +173,13 @@ export const About = () => {
 
 										<div class="hidden_details">
 											<div class="descriptions">
-											<p>- Led the division of the platform into a public platform and customized business parts, each consisting of 10+ microservices, utilizing the Spring Cloud framework.</p>
-											<p>- Implemented Spring AOP proxy to manage aspect logic in specific methods, enhancing code maintainability and functionality.</p>
-											<p>- Developed scheduled tasks for automatic data processing and communication with customers via email and SMS, enhancing user engagement and satisfaction.</p>
-											<p>- Spearheaded the development of approval workflows, contact creation, publication, and effectiveness tracking, streamlining business processes.</p>
-											<p>- Conducted in-depth business process analysis, successfully refactoring and optimizing complex business modules for improved efficiency and performance.</p>
-											<p>- Collaborated closely with account managers and developers to evaluate requirement feasibility, ensuring project alignment with business goals.</p>
-											<p>- Successfully completed 139 features during my tenure, demonstrating my commitment to excellence and project management capabilities.</p>
+												<p>- Led the division of the platform into a public platform and customized business parts, each consisting of 10+ microservices, utilizing the Spring Cloud framework.</p>
+												<p>- Implemented Spring AOP proxy to manage aspect logic in specific methods, enhancing code maintainability and functionality.</p>
+												<p>- Developed scheduled tasks for automatic data processing and communication with customers via email and SMS, enhancing user engagement and satisfaction.</p>
+												<p>- Spearheaded the development of approval workflows, contact creation, publication, and effectiveness tracking, streamlining business processes.</p>
+												<p>- Conducted in-depth business process analysis, successfully refactoring and optimizing complex business modules for improved efficiency and performance.</p>
+												<p>- Collaborated closely with account managers and developers to evaluate requirement feasibility, ensuring project alignment with business goals.</p>
+												<p>- Successfully completed 139 features during my tenure, demonstrating my commitment to excellence and project management capabilities.</p>
 											</div>
 										</div>
 

@@ -19,7 +19,7 @@ const Navbar = () => {
 					{/* Logo or brand name */}
 					<div className="flex-grow">
 						<NavLink to="/#" className="flex justify-center md:justify-start">
-							<span style={{ fontSize: '24px', fontWeight: 'bold', color: '#9f7aea' }}>Amanda</span>
+							<span style={{ fontSize: '30px', fontWeight: 'bold', color: '#9f7aea' }}>Amanda</span>
 						</NavLink>
 
 					</div>

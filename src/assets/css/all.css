@@ -1,0 +1,37 @@
+/* ScrollAnimationComponent.css */
+.scroll-sections-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .scroll-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* half the height of the viewport */
+  }
+  
+  .scroll-section .text-center {
+    text-align: center;
+  }
+  
+  .scroll-section .text-3xl {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Styling for the vertical line connecting the icons */
+  .scroll-sections-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    z-index: -1;
+  }
+  
+  /* Add more specific styling for your icons and text as needed */
+  
