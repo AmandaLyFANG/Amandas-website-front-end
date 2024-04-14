@@ -87,3 +87,7 @@ npm i react-bootstrap
 color: rgb(203, 195, 227) purple
 
 rgb(216, 191, 216)
+https://colorate.azurewebsites.net/zh/Color/CBC3E3
+
+picture: https://www.freepik.com/free-photos-vectors/minimalist-landscape
+
