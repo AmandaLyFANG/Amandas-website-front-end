@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import "./Blog.css"
 import Image1 from "@/assets/img/blog/1.png"
@@ -10,6 +10,8 @@ import Image5 from "@/assets/img/blog/5.png"
 import Image6 from "@/assets/img/blog/6.png"
 
 const Blog = () => {
+  const history = useNavigate()
+
   const fetchData = async (page, size, tagId = null) => {
     let endpoint = `/v1/blog/articles?page=${page}&size=${size}&isProject=false`
     if (tagId) {
@@ -83,6 +85,10 @@ const Blog = () => {
 
   const hasPreviousPage = currentPage > 0
   const hasNextPage = articles.length === pageSize
+  const pageToDetails = (id) => {
+    console.log('first')
+    history(`/blog-details/${id}`)
+  }
 
   return (
     <div className="main-container" style={{ backgroundColor: "white" }}>
@@ -109,6 +115,7 @@ const Blog = () => {
                     data-filter={`.cat${tag.tagId}`}
                     key={tag.tagId}
                     onClick={() => {
+                      pageToDetails(tag.tagId)
                       setSelectedTag(tag.tagId) // Set selected tag
                       fetchData(currentPage, pageSize, tag.tagId) // Fetch articles for the selected tag
                     }}
@@ -156,7 +163,7 @@ const Blog = () => {
                 onClick={() => goToPage(currentPage - 1)}
                 className="button-link-new"
               >
-                &lt; Previous{" "}
+                &lt; Previous
               </button>
               {currentPage} of {totalPages}
               <button
@@ -164,7 +171,6 @@ const Blog = () => {
                 onClick={() => goToPage(currentPage + 1)}
                 className="button-link-new"
               >
-                {" "}
                 Next &gt;
               </button>
             </div>
