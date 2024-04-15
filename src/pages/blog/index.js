@@ -2,57 +2,14 @@ import React, { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import "./Blog.css"
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
 import Image1 from "@/assets/img/blog/1.png"
 import Image2 from "@/assets/img/blog/2.png"
 import Image3 from "@/assets/img/blog/3.png"
 import Image4 from "@/assets/img/blog/4.png"
 import Image5 from "@/assets/img/blog/5.png"
 import Image6 from "@/assets/img/blog/6.png"
-
-const json = [
-  {
-    createTime: "2024-01-29T16:46:20.225546",
-    lastUpdateTime: "2024-01-29T16:46:20.225546",
-    isDelete: false,
-    tagId: 1,
-    tagName: "Website Updating Log"
-  },
-  {
-    createTime: "2024-01-29T16:46:20.225546",
-    lastUpdateTime: "2024-01-29T16:46:20.225546",
-    isDelete: false,
-    tagId: 2,
-    tagName: "Diary"
-  },
-  {
-    createTime: "2024-01-29T16:46:20.225546",
-    lastUpdateTime: "2024-01-29T16:46:20.225546",
-    isDelete: false,
-    tagId: 3,
-    tagName: "Interests"
-  },
-  {
-    createTime: "2024-03-17T16:18:56.342665",
-    lastUpdateTime: "2024-03-17T16:18:56.342665",
-    isDelete: false,
-    tagId: 6,
-    tagName: "Java"
-  },
-  {
-    createTime: "2024-03-17T16:18:56.342665",
-    lastUpdateTime: "2024-03-17T16:18:56.342665",
-    isDelete: false,
-    tagId: 7,
-    tagName: "NLP"
-  },
-  {
-    createTime: "2024-03-17T16:18:56.342665",
-    lastUpdateTime: "2024-03-17T16:18:56.342665",
-    isDelete: false,
-    tagId: 8,
-    tagName: "Data"
-  }
-]
 
 const Blog = () => {
   const history = useNavigate()
@@ -99,7 +56,7 @@ const Blog = () => {
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error)
     }
-    // setTags(json)
+    setTags(json)
   }
 
   const [articles, setArticles] = useState([])
@@ -172,8 +129,36 @@ const Blog = () => {
             </div>
           </div>
 
-          <Col xs={10}>
-            <Row>
+          <Col xs={10} style={{ marginTop: 32 }}>
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid
+                container
+                spacing={{ xs: 2, md: 3 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+              >
+                {articles?.map((item, index) => (
+                  <Grid item xs={12} sm={4} md={4} key={index}>
+                    <Card>
+                      <Card.Img
+                        variant="top"
+                        src={imagePaths[index % imagePaths.length]} // Modulo operation to cycle through images if there are more articles than images
+                        height={250}
+                      />
+                      <Card.Body>
+                        <Card.Title>{item.title}</Card.Title>
+                        <Link
+                          to={`/blog-details/${item.articleId}`}
+                          className="button-link"
+                        >
+                          {item.title}
+                        </Link>
+                      </Card.Body>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+            {/* <Row>
               {articles.map((article, index) => (
                 <Col xs={4} className="card-col" key={article.articleId}>
                   <Card>
@@ -195,13 +180,7 @@ const Blog = () => {
                   </Card>
                 </Col>
               ))}
-              {/* <Col xs={4} className="card-col" >
-                <Post3 />
-              </Col>
-              <Col xs={4} className="card-col" >
-                <Post3 />
-              </Col> */}
-            </Row>
+            </Row> */}
             <div className="pageButtonGroup">
               <button
                 disabled={!hasPreviousPage}
