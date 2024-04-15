@@ -118,7 +118,7 @@ const Project = () => {
                                                 </p> */}
                                             </div>
                                             <div className="px-6 pt-4 pb-2">
-                                            <Link to={`/blog-details/${article.articleId}`} className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</Link>
+                                            <Link to={`/details/${article.articleId}`} className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</Link>
                                                 {/* <a href="#" className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</a> */}
                                             </div>
                                         </div>
