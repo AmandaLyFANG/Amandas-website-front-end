@@ -9,6 +9,51 @@ import Image4 from "@/assets/img/blog/4.png"
 import Image5 from "@/assets/img/blog/5.png"
 import Image6 from "@/assets/img/blog/6.png"
 
+const json = [
+  {
+    createTime: "2024-01-29T16:46:20.225546",
+    lastUpdateTime: "2024-01-29T16:46:20.225546",
+    isDelete: false,
+    tagId: 1,
+    tagName: "Website Updating Log"
+  },
+  {
+    createTime: "2024-01-29T16:46:20.225546",
+    lastUpdateTime: "2024-01-29T16:46:20.225546",
+    isDelete: false,
+    tagId: 2,
+    tagName: "Diary"
+  },
+  {
+    createTime: "2024-01-29T16:46:20.225546",
+    lastUpdateTime: "2024-01-29T16:46:20.225546",
+    isDelete: false,
+    tagId: 3,
+    tagName: "Interests"
+  },
+  {
+    createTime: "2024-03-17T16:18:56.342665",
+    lastUpdateTime: "2024-03-17T16:18:56.342665",
+    isDelete: false,
+    tagId: 6,
+    tagName: "Java"
+  },
+  {
+    createTime: "2024-03-17T16:18:56.342665",
+    lastUpdateTime: "2024-03-17T16:18:56.342665",
+    isDelete: false,
+    tagId: 7,
+    tagName: "NLP"
+  },
+  {
+    createTime: "2024-03-17T16:18:56.342665",
+    lastUpdateTime: "2024-03-17T16:18:56.342665",
+    isDelete: false,
+    tagId: 8,
+    tagName: "Data"
+  }
+]
+
 const Blog = () => {
   const history = useNavigate()
 
@@ -54,6 +99,7 @@ const Blog = () => {
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error)
     }
+    setTags(json)
   }
 
   const [articles, setArticles] = useState([])
@@ -86,8 +132,7 @@ const Blog = () => {
   const hasPreviousPage = currentPage > 0
   const hasNextPage = articles.length === pageSize
   const pageToDetails = (id) => {
-    console.log('first')
-    history(`/blog-details/${id}`)
+    history(`/detail/${id}`)
   }
 
   return (
