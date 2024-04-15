@@ -35,16 +35,16 @@ const Post3 = () => {
 	};
 
 	return (
-		<div class="w-96 h-auto bg-white rounded overflow-hidden shadow-sm">
-			<img class="w-full h-48 object-cover" src={Image1} alt="Card image" />
-			<div class="px-6 py-4">
-				<div class="font-bold text-xl mb-2 text-center">Algorithm</div>
-				<p class="text-gray-700 text-base">
+		<div className="w-96 h-auto bg-white rounded overflow-hidden shadow-sm">
+			<img className="w-full h-48 object-cover" src={Image1} alt="Card image" />
+			<div className="px-6 py-4">
+				<div className="font-bold text-xl mb-2 text-center">Algorithm</div>
+				<p className="text-gray-700 text-base">
 					Algorithm
 				</p>
 			</div>
-			<div class="px-6 pt-4 pb-2">
-				<a href="#" class="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</a>
+			<div className="px-6 pt-4 pb-2">
+				<a href="#" className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</a>
 			</div>
 		</div>
 
@@ -75,7 +75,7 @@ const Post3 = () => {
 		// 					executed upon in order to get the expected
 		// 					results. */}
 		// 				</Card.Text>
-		// 				<a href="#" className="btn btn-primary">Read More</a>
+		// 				<a href="#" classNameName="btn btn-primary">Read More</a>
 		// 			</Card.Body>
 		// 		</Card>
 	)
