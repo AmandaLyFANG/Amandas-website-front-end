@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import loading from "../src/assets/img/loading.gif"
 import "./App.less"
 const About = lazy(() => import("./pages/about"))
+const SignUp = lazy(() => import("./pages/signup"))
 const Contact = lazy(() => import("./pages/contact"))
 const Blog = lazy(() => import("./pages/blog"))
 const Support = lazy(() => import("./pages/support"))
@@ -26,7 +27,8 @@ const Routes = () => {
     { path: "about", element: <About /> },
     { path: "project", element: <Project /> },
     { path: "contact", element: <Contact /> },
-    { path: "support", element: <Support /> }
+    { path: "support", element: <Support /> },
+    { path: "signup", element: <SignUp /> }
   ])
 
   return element
