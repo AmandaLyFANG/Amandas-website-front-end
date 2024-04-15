@@ -3,16 +3,17 @@ import { BrowserRouter as Router, useRoutes } from "react-router-dom"
 import Home from "./pages/home"
 import loading from "../src/assets/img/loading.gif"
 import "./App.less"
-const About = lazy(() => import("./pages/about"))
-const SignUp = lazy(() => import("./pages/signup"))
-const Contact = lazy(() => import("./pages/contact"))
-const Blog = lazy(() => import("./pages/blog"))
-const Support = lazy(() => import("./pages/support"))
-const BlogPage = lazy(() => import("./pages/navbar/BlogPage"))
-const Navbar = lazy(() => import("./pages/navbar"))
-const Project = lazy(() => import("./pages/project"))
-const CurriculumVitae = lazy(() => import("./pages/curriculumVitae"))
-const BlogDetails = lazy(() => import("./pages/blog/BlogDetails"))
+
+const About = lazy(() => import("@/pages/about"))
+const SignUp = lazy(() => import("@/pages/signup"))
+const Contact = lazy(() => import("@/pages/contact"))
+const Blog = lazy(() => import("@/pages/blog"))
+const Support = lazy(() => import("@/pages/support"))
+const BlogPage = lazy(() => import("@/pages/navbar/BlogPage"))
+const Navbar = lazy(() => import("@/pages/navbar"))
+const Project = lazy(() => import("@/pages/project"))
+const CurriculumVitae = lazy(() => import("@/pages/curriculumVitae"))
+const BlogDetails = lazy(() => import("@/pages/blog/BlogDetails"))
 
 const Routes = () => {
   const element = useRoutes([
@@ -22,7 +23,7 @@ const Routes = () => {
     },
     { path: "cv", element: <CurriculumVitae /> },
     { path: "blogs", element: <Blog /> },
-    { path: "blog-details", element: <BlogDetails /> },
+    { path: "detail/:articleId", element: <BlogDetails /> },
     { path: "blogpage", element: <BlogPage /> },
     { path: "about", element: <About /> },
     { path: "project", element: <Project /> },
@@ -43,7 +44,7 @@ const App = () => (
           height: "100vh",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <img src={loading} alt="loading" />
