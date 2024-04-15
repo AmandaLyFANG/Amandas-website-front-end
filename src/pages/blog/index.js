@@ -56,7 +56,6 @@ const Blog = () => {
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error)
     }
-    setTags(json)
   }
 
   const [articles, setArticles] = useState([])
@@ -117,9 +116,9 @@ const Blog = () => {
                     data-filter={`.cat${tag.tagId}`}
                     key={tag.tagId}
                     onClick={() => {
+                      pageToDetails(tag.tagId)
                       setSelectedTag(tag.tagId) // Set selected tag
                       fetchData(currentPage, pageSize, tag.tagId) // Fetch articles for the selected tag
-                      // pageToDetails(tag.tagId)
                     }}
                   >
                     {tag.tagName}
@@ -171,7 +170,7 @@ const Blog = () => {
                     <Card.Body>
                       <Card.Title>{article.title}</Card.Title>
                       <Link
-                        to={`/detail/${article.articleId}`}
+                        to={`/blog-details/${article.articleId}`}
                         className="button-link"
                       >
                         {article.title}
