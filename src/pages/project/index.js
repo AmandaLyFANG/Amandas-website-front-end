@@ -6,6 +6,8 @@ import Image1 from '@/assets/img/blog/1.png';
 // import Image5 from '@/assets/img/blog/5.png';
 // import Image6 from '@/assets/img/blog/6.png';
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 const Project = () => {
     const fetchData = async (tagId = null) => {
@@ -90,6 +92,21 @@ const Project = () => {
                         <div classNameName="justify-content-center">
                             <div className="row text-center mb-5">
                                 <div className="flex justify-center gap-5 font-semibold text-purple-color text-[17px]">
+                                    <Button type="button" className="active" onClick={() => {
+                                            setSelectedTag(null); // Set selected tag
+                                            fetchData(); // Fetch articles for the selected tag
+                                        }}>All</Button>
+                                    {tags.map(tag => (
+                                        // <Button type="button" data-filter={`.cat${tag.tagId}`} key={tag.tagId} onClick={() => {
+                                        //     setSelectedTag(tag.tagId); // Set selected tag
+                                        //     fetchData(tag.tagId); // Fetch articles for the selected tag
+                                        // }}>{tag.tagName}</Button>
+                                       <Button variant="text" key={tag.tagId} onClick={() => {
+                                            setSelectedTag(tag.tagId); // Set selected tag
+                                            fetchData(tag.tagId); // Fetch articles for the selected tag
+                                        }}> {tag.tagName}</Button>
+                                    ))}
+                                    {/*                                     
                                     <button type="button" className="active" onClick={() => {
                                             setSelectedTag(null); // Set selected tag
                                             fetchData(); // Fetch articles for the selected tag
@@ -99,7 +116,7 @@ const Project = () => {
                                             setSelectedTag(tag.tagId); // Set selected tag
                                             fetchData(tag.tagId); // Fetch articles for the selected tag
                                         }}>{tag.tagName}</button>
-                                    ))}
+                                    ))} */}
                                     {/* <button type="button" data-filter=".cat1">Java</button>
                                     <button type="button" data-filter=".cat2">NLP</button>
                                     <button type="button" data-filter=".cat3">Data</button> */}
@@ -112,13 +129,16 @@ const Project = () => {
                                         <div className="w-96 h-auto bg-white rounded overflow-hidden shadow-sm">
                                             <img className="w-full h-48 object-cover" src={Image1} alt="Card image" />
                                             <div className="px-6 py-4">
-                                                <div className="font-bold text-xl mb-2 text-center">{article.title}</div>
+                                                <div className="text-xl mb-2 text-center">{article.title}</div>
                                                 {/* <p className="text-gray-700 text-base">
                                                     {article.keyword}
                                                 </p> */}
                                             </div>
                                             <div className="px-6 pt-4 pb-2">
-                                            <Link to={`/details/${article.articleId}`} className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</Link>
+                                            <Button variant="contained" href={`/detail/${article.articleId}`}>
+                                                Read More
+                                            </Button>
+                                            {/* <Link to={`/detail/${article.articleId}`} className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</Link> */}
                                                 {/* <a href="#" className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-black">Read More</a> */}
                                             </div>
                                         </div>

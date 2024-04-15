@@ -31,7 +31,7 @@ const BlogDetails = () => {
   }
 
   return (
-            <div className="container">
+            <div className="container" style={{ maxWidth: 1200,margin: '0 auto' }}>
                 <div className="row justify-content-center mb-5">
                     <div className="col-xl-8 col-lg-10 col-12">
                         <div className="common_heading text-center">
