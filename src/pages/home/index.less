@@ -68,3 +68,34 @@
     padding: 10px 20px; /* Adjust button padding on mobile */
   }
 }
+
+.fade {
+  animation: fadeIn 3s infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+.home-container {
+  width: 100vw;
+   height: calc(100vh - 128px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

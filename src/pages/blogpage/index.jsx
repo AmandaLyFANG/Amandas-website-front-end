@@ -1,9 +1,7 @@
-import React from "react";
-// import Navbar from "./BlogNav"
 import Post3 from "./Post3";
 import Post4 from "./Post4";
 import { Container, Row, Col } from 'react-bootstrap';
-import "./BlogPage.css"
+import "./index.less"
 
 const BlogPage = () => {
     return (

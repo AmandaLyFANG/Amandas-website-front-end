@@ -1,9 +1,9 @@
 // https://blog.hubspot.com/marketing/best-personal-websites
 // https://jopecuro.com/
 
-import React from "react"
 // import ScrollAnimationComponent from "../navbar/ScrollAnimation"
 import "animate.css/animate.min.css"
+import "./index.less"
 // import { TimelineAnimation } from "@/components/TimelineAnimation/TimelineAnimation"
 
 const About = () => {
@@ -17,14 +17,16 @@ const About = () => {
                 <span className="mini block uppercase font-medium mb-[12px]">
                   - Nice to meet you!
                 </span>
-                <h3 className="name font-extrabold text-[40px]">Lingyun Fang</h3>
+                <h3 className="name font-extrabold text-[40px]">
+                  Lingyun Fang
+                </h3>
                 <h3>(Amanda)</h3>
                 <span className="job font-semibold text-[20px] text-dark-color">
-                  <span className="cd-headline clip">
-                    <span className="blc">
+                  <div className="cd-headline clip" style={{ marginTop: 36 }}>
+                    <div className="blc">
                       Creater &amp; Developer &amp; Designer
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
               </div>
             </div>
@@ -90,13 +92,18 @@ const About = () => {
               <span className="w-full float-left font-medium uppercase inline-block mb-[12px]">
                 - Experience
               </span>
-              <h3 className="text-[40px] font-extrabold">Everything about me!</h3>
+              <h3 className="text-[40px] font-extrabold">
+                Everything about me!
+              </h3>
             </div>
             <div className="list w-full float-left mt-[40px]">
               <ul className="ml-[-30px] flex flex-wrap">
                 {/* <!-- EDUCATION --> */}
-                <li className="mb-[40px] pl-[30px] float-left ">
-                  <div className=" w-full float-left">
+                <li
+                  className="mb-[40px] pl-[30px] float-left"
+                  style={{ width: "100%" }}
+                >
+                  <div className=" w-full float-left lh60">
                     <h3 className="text-[30px] font-bold mb-2">- Education</h3>
                   </div>
 
@@ -161,7 +168,7 @@ const About = () => {
                 </li>
 
                 <li className="mb-[40px] pl-[30px] float-left ">
-                  <div className=" w-full float-left">
+                  <div className=" w-full float-left lh60">
                     <h3 className="text-[30px] font-bold mb-2">
                       - Working Experience
                     </h3>
@@ -250,7 +257,7 @@ const About = () => {
                     </div>
                   </div>
                 </li>
-                <li className="mb-[40px] pl-[30px] float-left ">
+                <li className="mb-[40px] pl-[30px] float-left">
                   <img
                     className="popup_image"
                     src="assets/img/experience/2.jpg"

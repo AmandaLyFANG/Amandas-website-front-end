@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Container, Row, Col, Card } from "react-bootstrap"
-import "./Blog.css"
+import { Container, Row, Col } from "react-bootstrap"
+import Card from "@mui/material/Card"
+import CardActions from "@mui/material/CardActions"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import Typography from "@mui/material/Typography"
+import "./index.less"
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import Image1 from "@/assets/img/blog/1.png"
@@ -193,42 +198,41 @@ const Blog = () => {
   return (
     <div className="main-container" style={{ backgroundColor: "white" }}>
       <Container>
-      <div style={{ maxWidth: 1200,margin: '0 auto' }}>
-        <Row className="justify-content-between">
-          <div className="row mb-5">
-            <div className="col-xl-8 col-lg-8 col-12 mb-5 mb-xxl-0 mb-xl-0 mb-lg-0">
-              <div className=" portfolio_button2">
-                <button
-                  type="button"
-                  className="active"
-                  data-filter="*"
-                  onClick={() => {
-                    setSelectedTag(null) // Reset selected tag
-                    fetchData(currentPage, pageSize) // Fetch all articles
-                  }}
-                >
-                  All
-                </button>
-
-                {tags?.map((tag) => (
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Row className="justify-content-between">
+            <div className="row mb-5">
+              <div className="col-xl-8 col-lg-8 col-12 mb-5 mb-xxl-0 mb-xl-0 mb-lg-0">
+                <div className=" portfolio_button2">
                   <button
                     type="button"
-                    data-filter={`.cat${tag.tagId}`}
-                    key={tag.tagId}
+                    className="active"
+                    data-filter="*"
                     onClick={() => {
-                      pageToDetails(tag.tagId)
-                      setSelectedTag(tag.tagId) // Set selected tag
-                      fetchData(currentPage, pageSize, tag.tagId) // Fetch articles for the selected tag
+                      setSelectedTag(null) // Reset selected tag
+                      fetchData(currentPage, pageSize) // Fetch all articles
                     }}
                   >
-                    {tag.tagName}
+                    All
                   </button>
-                ))}
+
+                  {tags?.map((tag) => (
+                    <button
+                      type="button"
+                      data-filter={`.cat${tag.tagId}`}
+                      key={tag.tagId}
+                      onClick={() => {
+                        pageToDetails(tag.tagId)
+                        setSelectedTag(tag.tagId) // Set selected tag
+                        fetchData(currentPage, pageSize, tag.tagId) // Fetch articles for the selected tag
+                      }}
+                    >
+                      {tag.tagName}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          
             <Col xs={10} style={{ marginTop: 32 }}>
               <Box sx={{ flexGrow: 1 }}>
                 <Grid
@@ -238,7 +242,7 @@ const Blog = () => {
                 >
                   {articles?.map((item, index) => (
                     <Grid item xs={12} sm={4} md={4} key={index}>
-                      <Card>
+                      {/* <Card>
                         <Card.Img
                           variant="top"
                           src={imagePaths[index % imagePaths.length]} // Modulo operation to cycle through images if there are more articles than images
@@ -253,6 +257,33 @@ const Blog = () => {
                             {item.title}
                           </Link>
                         </Card.Body>
+                      </Card> */}
+                      <Card sx={{ maxWidth: 345, marginTop: "24px" }}>
+                        <CardMedia
+                          component="img"
+                          alt="green iguana"
+                          height="240"
+                          image={imagePaths[index % imagePaths.length]}
+                        />
+                        <CardContent>
+                          <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            className="ellipsis"
+                          >
+                            <span title={item.title}>{item.title}</span>
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Link
+                            to={`/detail/${item.articleId}`}
+                            className="button-link ellipsis"
+                            title={item.title}
+                          >
+                            {item.title}
+                          </Link>
+                        </CardActions>
                       </Card>
                     </Grid>
                   ))}
@@ -299,9 +330,8 @@ const Blog = () => {
                 </button>
               </div>
             </Col>
-          
-        </Row>
-      </div>
+          </Row>
+        </div>
       </Container>
     </div>
   )
