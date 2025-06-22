@@ -16,7 +16,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 // import { NavBtn, NavBtnLink } from "./NavbarElements"
 
 const drawerWidth = 240
-const navItems = ["About", "Blogs", "Project", "Contact", "SignUp"]
+const navItems = ["About", "Blogs", "Project", "Contact"]
 
 export default function DrawerAppBar(props) {
   const { window } = props
